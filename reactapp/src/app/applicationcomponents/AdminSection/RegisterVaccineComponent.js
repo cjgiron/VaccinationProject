@@ -16,11 +16,12 @@ let RegisterVaccineComponent = () => {
     const [doses, setDoses] = useState(defaultVaccine.doses);
     const [otherInfo, setOtherInfo] = useState(defaultVaccine.otherInfo);
 
-    let saveVaccineClick = () => {
+    let saveVaccineClick = (evt) => {
         let vaccineObj = {name, price, type, sideEffects, origin, doses, otherInfo};
 
         alert("We are going to save this vaccine - "+ JSON.stringify(vaccineObj));
         dispatch(saveVaccine(vaccineObj));
+        evt.preventDefault();
     }
 
 

@@ -15,10 +15,6 @@ let HospitalsComponent = () => {
     },[])
 
 
-    console.log("hospitalList: ", hospitalList);
-
-
-
     return (
         <>
             <h2>Hospitals</h2>

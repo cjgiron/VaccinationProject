@@ -3,6 +3,8 @@ import thunk from "redux-thunk"; //is used to pipeline the dispatched objects an
 import promise from "redux-promise-middleware";//is used to make calls to the server using promise
 import vaccineReducer from "../state/vaccine/vaccineReducer";
 import hospitalReducer from "../state/hospital/hospitalReducer";
+import userReducer from "../state/user/userReducer";
+import appointmentReducer from "../state/appointment/appointmentReducer";
 
 let logger = () => (next) => (action) => {
     //currying in javasript where we pass function as input and recieve function as output
@@ -14,7 +16,9 @@ let logger = () => (next) => (action) => {
 export default createStore(
     combineReducers({
         vaccineReducer,
-        hospitalReducer
+        hospitalReducer,
+        userReducer,
+        appointmentReducer
     }),
     {},//inital state if we want to set from store instead of reducer
     applyMiddleware(logger, thunk, promise)

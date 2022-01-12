@@ -17,11 +17,12 @@ let RegisterHospitalComponent = () => {
         setType(evt.target.value);
     }
 
-    let saveHospitalClick = () => {
+    let saveHospitalClick = (evt) => {
         let hospitalObj = {name, address, type, charges}
 
         alert("We are going to save this hospital - "+ JSON.stringify(hospitalObj));
         dispatch(saveHospital(hospitalObj))
+        evt.preventDefault();
     }
 
 
