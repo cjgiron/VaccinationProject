@@ -1,31 +1,31 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { signinUser } from "../../state/user/userActions";
 
 
 let UserComponent = (props)=>{
 
-    const inputName = useRef(null);
-    const inputPassword = useRef(null);
-    const inputAge = useRef(null);
-    const inputProfession = useRef(null);
-    const inputContact = useRef(null);
-    const inputAddress = useRef(null);
-    const inputGender = useRef(null);
-    const inputDisease = useRef(null);
-    const inputMedicalCert = useRef(null);
+    const inputName = useRef("");
+    const inputPassword = useRef("");
+    const inputAge = useRef(0);
+    const inputProfession = useRef("");
+    const inputContact = useRef(0);
+    const inputAddress = useRef("");
+    const inputGender = useRef("");
+    const inputDisease = useRef("");
+    const inputMedicalCert = useRef("");
 
+    const navigate = useNavigate();
 
-
+    
     // to make our component subscribe to the store we need to use - useSelector and then
     // select the state with which we want to map our data (mapStateToProps)
     const user = useSelector((state)=>state.userReducer.user);//this also works in async
-
     // this hook is used to replace map dispatch to props so that we are able to 
     // make our functional component publish the new data
     //this hook is used to do the job of mapDispatchToProps, we need to initialize it and then use it on handler
     const dispatchUserObj = useDispatch();
-
 
     // replacemnet of shouldComponentUpdate or componentDidMount or componentWillUnmout
     useEffect(()=>{
@@ -64,10 +64,12 @@ let UserComponent = (props)=>{
             medicalCert : inputMedicalCert.current.value
         }
 
+        
         // this hook is used to replace map dispatch to props so that we are able to 
         // make our functional component publish the new data
         dispatchUserObj(signinUser(userObj)) // now this user will be saved
 
+        navigate('/userAppointments');
         evt.preventDefault();
     }
 

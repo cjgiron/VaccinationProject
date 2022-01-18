@@ -11,6 +11,7 @@ import RegisterHospital from "./applicationcomponents/AdminSection/RegisterHospi
 import Hospitals from "./applicationcomponents/AdminSection/HospitalsComponent";
 import User from "./applicationcomponents/User/RegisterUserComponent";
 import Appointment from "./applicationcomponents/AdminSection/AppointmentComponent";
+import UserAppointments from "./applicationcomponents/User/UserAppointmentsComponent";
 
 export default class AppComponent extends Component {
     constructor(props, context){
@@ -26,6 +27,7 @@ export default class AppComponent extends Component {
                     <Route path="/admin" element={<HomeAdmin />} />  
                     <Route path="/registerHospital" element={<RegisterHospital />} />
                     <Route path="/hospitals" element={<Hospitals />} />
+                    <Route path="/userAppointments" element={<UserAppointments />} />
                     <Route path="/user" element={<User />} />
                     <Route path="/appointment" element={<Appointment />} />
                 </Routes>
