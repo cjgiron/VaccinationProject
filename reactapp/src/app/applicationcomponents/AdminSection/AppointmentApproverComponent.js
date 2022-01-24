@@ -8,7 +8,7 @@ import Datetime from 'react-datetime';
 
 
 
-let AppointmentComponent = () => {
+let AppointmentApproverComponent = () => {
 
     const userList = useSelector((state) => state.userReducer.users);
     const hospitalList = useSelector((state) => state.hospitalReducer.hospitals);
@@ -67,20 +67,12 @@ let AppointmentComponent = () => {
             }
         }
 
-        var d = new Date(myDate);
-        var month = d.getUTCMonth() + 1;
-        var hours = d.getUTCHours() - 8;
-        const dateString = `${d.getUTCFullYear()}-${(d.getUTCMonth()<10?'0':'') + month}-${(d.getUTCDate()<10?'0':'') + d.getUTCDate()}T${(d.getHours()<10?'0':'') + hours}:${(d.getMinutes()<10?'0':'') + d.getMinutes()}:${(d.getSeconds()<10?'0':'')+ d.getSeconds()}:000Z`;
-
-
-        var date = d.getUTCDate();
-        console.log(d.getUTCMonth());
 
         const appointmentObj = {
             user: user,
             hospital: hospital,
             vaccine: vaccine,
-            date: dateString
+            date: myDate
         }
         alert("We are going to save this appointment - "+ JSON.stringify(appointmentObj));
         dispatch(saveAppointment(appointmentObj));
@@ -121,4 +113,4 @@ let AppointmentComponent = () => {
     )
 }
 
-export default AppointmentComponent;
+export default AppointmentApproverComponent;

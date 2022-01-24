@@ -61,7 +61,8 @@ let UserComponent = (props)=>{
             address : inputAddress.current.value,
             gender : inputGender.current.value,
             disease : inputDisease.current.value,
-            medicalCert : inputMedicalCert.current.value
+            medicalCert : inputMedicalCert.current.value,
+            paid: user.paid
         }
 
         

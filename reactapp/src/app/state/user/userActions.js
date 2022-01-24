@@ -47,6 +47,35 @@ export const signinUser = (userObject)=>{
     }
 }
 
+export const updateUserPaid = (userId)=>{
+    // thunk, returns function as an action
+    return function (dispatch, getState) {
+        // here we go with ajax call : to save data to the server or fetch it from the server
+        // using fetch method of react
+        console.log("called by thunk");
+        //dispatch(loading(true));
+        window.fetch("http://localhost:9090/user/api/updateUserPaid",//uri or end point of singninup api
+            {
+                method: 'POST', //rest method type to save the data
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({userId})
+            })
+            .then(userresp => userresp.json())//response from the server/ api - parsing to json
+            .then(userresp => {
+                console.log("Update user paid response ", userresp); // this response will come with _id   
+                dispatch(fetchUsers()); // it will keep the current context to update the user object and takes it to the reducer
+            })
+            .catch((err)=>{
+                console.log("Error While Updating user paid", err)
+            });
+    }
+}
+
+
+
 export const fetchUsers = ()=>{
     return function (dispatch) {
         //dispatch(loading(true));

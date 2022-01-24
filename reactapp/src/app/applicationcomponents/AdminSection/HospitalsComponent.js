@@ -10,9 +10,9 @@ let HospitalsComponent = () => {
     const dispatch = useDispatch();
 
     //componentDidMount : by initializing the parameters as dependency
-    useEffect(()=>{
-        dispatch(fetchHospitals()) // we are calling fetchproducts but not adding it to the store.
-    },[])
+    // useEffect(()=>{
+    //     dispatch(fetchHospitals()) // we are calling fetchproducts but not adding it to the store.
+    // },[])
 
 
     return (
@@ -26,7 +26,6 @@ let HospitalsComponent = () => {
                                 <th>Name</th>
                                 <th>Address</th>
                                 <th>Type</th>
-                                <th>Charges</th>
                             </tr>
                         </thead>
                         <tbody>

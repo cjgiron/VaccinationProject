@@ -15,7 +15,8 @@ let INITIAL_STATE = {
         gender: "",
         disease: "",
         medicalCert: "",
-        _id: ""
+        _id: "",
+        paid: false
     }
 }
 

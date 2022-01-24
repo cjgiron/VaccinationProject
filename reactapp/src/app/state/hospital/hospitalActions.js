@@ -27,6 +27,34 @@ export const saveHospital = (hospital)=>{
     }
 };
 
+export const updateHospitalCharge = (hospitalId, charges)=>{
+    console.log("hospitalId and charges: ", hospitalId, charges);
+    return function (dispatch) {
+        //dispatch(loading(true));
+
+        window.fetch("http://localhost:9090/hospital/api/updateHospitalCharge", {
+            method: 'POST', //rest method type 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({hospitalId, charges})
+        })
+        .then(hospitalResp => hospitalResp.json())
+        .then((hospitalResp)=>{
+            console.log("hospital update response ", hospitalResp);
+            //dispatch(loading(false));
+            dispatch(fetchHospitals());
+        })
+        .catch((err)=>{
+            console.log("Error While Updating Hospital", err)
+        })
+    }
+};
+
+
+
+
 export const fetchHospitals = ()=>{
     return function (dispatch) {
         //dispatch(loading(true));
@@ -51,7 +79,10 @@ export const addHospitalToStore = (hospitals)=>({
     payload : {hospitals}
 }) 
 
-export const addCharge = (id) => ({
+export const addCharge = (hospitals, id) => ({
     type: ActionTypes.ADD_CHARGE,
-    payload: {id}
+    payload: {
+        hospitals,
+        id
+    }
 })

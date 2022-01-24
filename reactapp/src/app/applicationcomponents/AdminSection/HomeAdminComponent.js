@@ -17,7 +17,7 @@ let HomeAdminComponent = () => {
                 <NavLink to="/registerVaccine" className="button">Register a Vaccine</NavLink>
                 <NavLink to="/hospitals" className="button">Hospitals</NavLink>
                 <NavLink to="/registerHospital" className="button" >Register a Hospital</NavLink>
-                <NavLink to="/appointment" className="button" >Schedule Appointment</NavLink>
+                <NavLink to="/appointmentApprover" className="button" >Schedule Appointment</NavLink>
             </div>
         </Fragment>
         : <p>You must be Admin to access this page</p>

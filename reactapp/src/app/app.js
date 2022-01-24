@@ -10,8 +10,10 @@ import HomeAdmin from "./applicationcomponents/AdminSection/HomeAdminComponent";
 import RegisterHospital from "./applicationcomponents/AdminSection/RegisterHospitalComponent";
 import Hospitals from "./applicationcomponents/AdminSection/HospitalsComponent";
 import User from "./applicationcomponents/User/RegisterUserComponent";
-import Appointment from "./applicationcomponents/AdminSection/AppointmentComponent";
+import AppointmentApprover from "./applicationcomponents/AdminSection/AppointmentApproverComponent";
 import UserAppointments from "./applicationcomponents/User/UserAppointmentsComponent";
+import Patient from "./applicationcomponents/User/PatientComponent";
+import Payment from "./applicationcomponents/User/PaymentComponent";
 
 export default class AppComponent extends Component {
     constructor(props, context){
@@ -29,7 +31,9 @@ export default class AppComponent extends Component {
                     <Route path="/hospitals" element={<Hospitals />} />
                     <Route path="/userAppointments" element={<UserAppointments />} />
                     <Route path="/user" element={<User />} />
-                    <Route path="/appointment" element={<Appointment />} />
+                    <Route path="/appointmentApprover" element={<AppointmentApprover />} />
+                    <Route path="/patient" element={<Patient />} />
+                    <Route path="/payment" element={<Payment />} />
                 </Routes>
                 <Footer/>
             </Router>
